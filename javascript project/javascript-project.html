@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="to-do-list" />
+    <link rel="stylesheet" href="style.css">
+    <title>to-do-list</title>
+  </head>
+  <body>
+    <div class="to-do-list">
+    <h1 style="text-align: center">TO-DO-LIST</h1>
+    <h3>ADD ITEM</h3>
+    <hr />
+    <input type="text" id="text"/><span
+      ><button id="addButton">Add</button></span
+    >
+    <div class="todo">
+        <h3>TODO</h3>
+        <hr>
+        <ul id="list"></ul>
+        <hr>
+        <h3>Completed</h3>
+        <ul id="complete"></ul>
+      </div>
+    <script>
+        let input=document.querySelector("#text");
+        let ul=document.querySelector("#list");
+        let complete=document.querySelector("#complete");
+        let addButton=document.querySelector("#addButton");
+        let hr=document.querySelector("#hr");
+      addButton.addEventListener("click",()=>{
+        let value=input.value;
+        let li=document.createElement("li");
+        li.textContent=value;
+        ul.appendChild(li);
+        li.style.fontWeight="bold";
+        li.style.textTransform="upperCase";
+        //checkbox
+        let checkbox=document.createElement("input");
+        checkbox.type="checkbox";
+        li.prepend(checkbox);
+        //button
+        let editButton=document.createElement("button");
+        editButton.textContent="edit";
+        editButton.className="edit";
+        li.appendChild(editButton);
+        //delete
+        let deleteButton=document.createElement("button");
+        deleteButton.textContent="delete";
+        deleteButton.className="delete";
+        li.appendChild(deleteButton);
+        //edit
+        editButton.addEventListener("click",()=>{
+          let input=document.createElement("input");
+          input.type="text";
+          const liText=li.childNodes[1];
+          li.replaceChild(input,liText);
+          console.log(li.childNodes);
+        });
+        //hr 
+        let hr=document.createElement("hr");
+        ul.appendChild(hr);
+          //deleteFunction
+        deleteButton.addEventListener("click",()=>{
+           const parentOne=deleteButton.parentNode;
+           const parentHr=deleteButton.parentNode.parentNode;
+           ul.removeChild(parentOne);
+           ul.removeChild(hr);
+        });
+        checkbox.addEventListener("click",()=>{
+            complete.appendChild(li);
+            li.style.textDecoration="line-through";
+            deleteButton.addEventListener("click",()=>{
+              complete.removeChild(li);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

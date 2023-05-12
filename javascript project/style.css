@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  background-color: #cddf74;
+}
+.to-do-list {
+  background-color: rgb(236, 244, 244);
+  margin: 25px;
+  border-radius: 15px;
+}
+input {
+  border-radius: 8px;
+  margin: 10px;
+  height: 30px;
+  border-color: #cddf74;
+}
+.to-do-list h3 {
+  padding: 10px;
+}
+#list {
+  list-style: none;
+  padding: 0px;
+}
+h1 {
+  text-align: center;
+}
+#text {
+  width: 400px;
+  margin-left: 45px;
+}
+#complete {
+  list-style: none;
+  padding: 0px;
+}
+.to-do-list {
+  width: 600px;
+}
+button {
+  width: 65px;
+  border: none;
+  font-size: 15px;
+  background: none;
+}
+button:hover {
+  color: red;
+}
+.edit {
+  color: blue;
+  width: 15px;
+  padding: 0px 35px;
+}
+.delete {
+  color: lightcoral;
+}
+hr {
+  color: black;
+}
+@media screen and (max-width: 600px) {
+  .to-do-list {
+    width: 425px;
+  }
+  #text {
+    width: 200px;
+    padding-left: 25px;
+  }
+  body {
+    padding: 10px;
+  }
+}
