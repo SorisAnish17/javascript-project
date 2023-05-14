@@ -71,8 +71,12 @@
            ul.removeChild(hr);
         });
         checkbox.addEventListener("click",()=>{
-            complete.appendChild(li);
-            li.style.textDecoration="line-through";
+            if(e.target.checked){
+              complete.appendChild(li);
+              li.style.textDecoration="line-through";
+            }else{
+              list.appendChild(li);
+            }
             deleteButton.addEventListener("click",()=>{
               complete.removeChild(li);
             });
